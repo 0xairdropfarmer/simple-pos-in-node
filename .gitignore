@@ -1,0 +1,34 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/react-pos/node_modules
+/server/node_modules
+/server/databases
+
+
+
+# testing
+/coverage
+
+# production
+/build
+
+#src
+/react-pos/src/js/api
+/react-pos/src/js/store
+/react-pos/src/js/actions
+/react-pos/src/js/reducers
+/react-pos/src/routes.js
+/react-pos/src/js/components/Home.js
+
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
