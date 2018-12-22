@@ -1,0 +1,25 @@
+{
+  "name": "simple-pos-in-node",
+  "version": "1.0.0",
+  "description": "A  Real-time Point of Sale system written in Node.js &amp; React.js",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "cd react-pos && npm i && npm run build && cd ../server && npm i && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coffeemipt/simple-pos-in-node.git"
+  },
+  "keywords": [
+    "pos",
+    "react",
+    "point-of-sale"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coffeemipt/simple-pos-in-node/issues"
+  },
+  "homepage": "https://github.com/coffeemipt/simple-pos-in-node#readme"
+}
