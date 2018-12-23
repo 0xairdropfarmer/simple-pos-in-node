@@ -7,9 +7,11 @@ import RecentTransactions from "./RecentTransactions";
 import LiveTransactions from "./LiveTransactions";
 import moment from "moment";
 
-const HOST = "http://localhost:80";
+import { HOST, SOCKET_HOST } from '../constants';
+
 var url = HOST + `/api/all`;
-var socket = io.connect(HOST);
+var socket = io.connect(SOCKET_HOST);
+
 class LiveCart extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +38,7 @@ class LiveCart extends Component {
     var { transactions, liveTransactions } = this.state;
     var renderRecentTransactions = () => {
       if (transactions.length === 0) {
-        return <p>No recent transactions available</p>;
+        return <tr><td>No recent transactions available</td></tr>;
       } else {
         return transactions.map(transaction => (
           <RecentTransactions {...transaction} />
@@ -49,15 +51,13 @@ class LiveCart extends Component {
     var renderLiveTransactions = () => {
       if (liveTransactions.length === 0) {
         return (
-          <div>
-            <div className="col-md-5 pull-right">
-              <div>
-                <div className="alert alert-warning text-center" role="alert">
-                  <strong>Not Active:</strong> No items added at the moment.
-                </div>
+          <tr>
+            <td colSpan="3">
+              <div className="alert alert-warning text-center" role="alert">
+              <strong>Not Active:</strong> No items added at the moment.
               </div>
-            </div>
-          </div>
+            </td>
+          </tr>
         );
       } else {
         return liveTransactions.map(liveTransaction => (
