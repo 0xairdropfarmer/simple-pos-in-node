@@ -1,15 +1,19 @@
 var express = require("express"),
   http = require("http"),
   app = require("express")(),
+  path = require("path"),
   server = http.createServer(app),
   bodyParser = require("body-parser"),
   io = require("socket.io")(server),
   liveCart = [];
 
 const PORT = process.env.PORT || 8001;
+const publicPath = path.join(__dirname, "../react-pos/build");
 
 console.log("Real time POS running");
 console.log("Server started");
+
+app.use(express.static(publicPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -27,10 +31,6 @@ app.all("/*", function(req, res, next) {
   } else {
     next();
   }
-});
-
-app.get("/", function(req, res) {
-  res.send(" Real time POS web app running.");
 });
 
 app.use("/api/inventory", require("./api/inventory"));

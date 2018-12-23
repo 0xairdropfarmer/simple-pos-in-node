@@ -7,14 +7,14 @@ class Checkout extends Component {
     return (
       <div>
         <button
-          class="btn btn-success lead"
+          className="btn btn-success lead"
           id="checkoutButton"
           ng-click="focusPayment()"
           ng-disabled="cartTotal === 0"
           data-toggle="modal"
           data-target="#checkoutModal"
         >
-          <i class="glyphicon glyphicon-shopping-cart" />
+          <i className="glyphicon glyphicon-shopping-cart" />
           <br />
           <br />
           C<br />
@@ -32,26 +32,26 @@ class Checkout extends Component {
               <Modal.Title>Checkout</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div ng-hide="transactionComplete" class="lead">
+              <div ng-hide="transactionComplete" className="lead">
                 <h3>
-                  Total: <span class="text-danger"> {total} </span>
+                  Total: <span className="text-danger"> {total} </span>
                 </h3>
                 <h3>
                   Change Due:
-                  <span class="text-success">getChangeDue() | currency </span>
+                  <span className="text-success">getChangeDue() | currency </span>
                 </h3>
 
-                <form class="form-horizontal" name="checkoutForm">
+                <form className="form-horizontal" name="checkoutForm">
                   <div
-                    class="form-group"
-                    ng-class="{ 'has-error': checkoutForm.payment.$error.required }"
+                    className="form-group"
+                    ng-className="{ 'has-error': checkoutForm.payment.$error.required }"
                   >
-                    <div class="input-group">
-                      <div class="input-group-addon">$</div>
+                    <div className="input-group">
+                      <div className="input-group-addon">$</div>
                       <input
                         type="number"
                         id="checkoutPaymentAmount"
-                        class="form-control input-lg"
+                        className="form-control input-lg"
                         name="payment"
                         step="any"
                         min="0"
@@ -61,9 +61,9 @@ class Checkout extends Component {
                     </div>
                   </div>
 
-                  <p class="text-danger">Enter payment amount.</p>
+                  <p className="text-danger">Enter payment amount.</p>
 
-                  <button type="submit" class="btn btn-primary btn-lg lead">
+                  <button type="submit" className="btn btn-primary btn-lg lead">
                     Print Receipt
                   </button>
                 </form>
@@ -71,25 +71,25 @@ class Checkout extends Component {
 
               <div
                 ng-show="transactionComplete"
-                class="lead"
+                className="lead"
                 ng-if="checkoutForm.payment"
               >
                 <h3>
                   Total:
-                  <span class="text-danger">
+                  <span className="text-danger">
                     previousCartInfo.total | currency
                   </span>
                 </h3>
                 <h3>
                   Change Due:
-                  <span class="text-success">
+                  <span className="text-success">
                     previousCartInfo.paymentAmount - previousCartInfo.total |
                     currency
                   </span>
                 </h3>
                 <button
                   ng-click="closeModal()"
-                  class="btn btn-default btn-lg"
+                  className="btn btn-default btn-lg"
                   type="button"
                 >
                   Close

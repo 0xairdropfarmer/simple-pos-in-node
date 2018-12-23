@@ -3,9 +3,8 @@ import "./App.css";
 import Header from "./Header";
 import CompleteTransactions from "./CompleteTransactions";
 import axios from "axios";
-import moment from "moment";
+import { HOST } from '../constants';
 
-const HOST = "http://localhost:80";
 const url = HOST + `/api/all`;
 
 class Transactions extends Component {
@@ -26,7 +25,7 @@ class Transactions extends Component {
 
     var rendertransactions = () => {
       if (transactions.length === 0) {
-        return <p>No Transactions found</p>;
+        return <tr><td>No Transactions found</td></tr>;
       } else {
         return transactions.map(transaction => (
           <CompleteTransactions {...transaction} />

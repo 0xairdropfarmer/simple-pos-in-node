@@ -1,0 +1,11 @@
+{
+  "name": "simple-pos-in-node",
+  "description": "A  Real-time Point of Sale system written in Node.js &amp; React.js",
+  "repository": "https://github.com/coffeemipt/simple-pos-in-node",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": [
+    "react",
+    "pos",
+    "point-of-sale"
+  ]
+}

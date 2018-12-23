@@ -1,9 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/react-pos/node_modules
-/server/node_modules
-/server/databases
+react-pos/node_modules
+server/node_modules
+node_modules
 
 
 
@@ -11,15 +11,6 @@
 /coverage
 
 # production
-/build
-
-#src
-/react-pos/src/js/api
-/react-pos/src/js/store
-/react-pos/src/js/actions
-/react-pos/src/js/reducers
-/react-pos/src/routes.js
-/react-pos/src/js/components/Home.js
 
 
 # misc
