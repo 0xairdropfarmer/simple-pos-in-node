@@ -4,8 +4,7 @@ import Header from "./Header";
 import Product from "./Product";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
-
-const HOST = "http://localhost:8001";
+import { HOST } from '../constants';
 
 class Inventory extends Component {
   constructor(props) {

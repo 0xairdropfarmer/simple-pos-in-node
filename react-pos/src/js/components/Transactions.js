@@ -3,8 +3,8 @@ import "./App.css";
 import Header from "./Header";
 import CompleteTransactions from "./CompleteTransactions";
 import axios from "axios";
+import { HOST } from '../constants';
 
-const HOST = "http://localhost:8001";
 const url = HOST + `/api/all`;
 
 class Transactions extends Component {

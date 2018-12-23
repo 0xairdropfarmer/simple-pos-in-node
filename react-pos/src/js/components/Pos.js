@@ -6,9 +6,9 @@ import axios from "axios";
 import moment from "moment";
 import { Modal, Button } from "react-bootstrap";
 import LivePos from "./LivePos";
+import { HOST, SOCKET_HOST } from '../constants';
 
-const HOST = "http://localhost:8001";
-let socket = io.connect(HOST);
+let socket = io.connect(SOCKET_HOST);
 
 class Pos extends Component {
   constructor(props) {
