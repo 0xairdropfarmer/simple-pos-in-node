@@ -7,7 +7,7 @@ import moment from "moment";
 import { Modal, Button } from "react-bootstrap";
 import LivePos from "./LivePos";
 
-const HOST = "http://localhost:80";
+const HOST = "http://localhost:8001";
 let socket = io.connect(HOST);
 
 class Pos extends Component {
@@ -42,15 +42,18 @@ class Pos extends Component {
   handleSubmit = e => {
     this.setState({ addItemModal: false });
 
+    const id = this.state.id + 1;
+
     const currentItem = {
-      id: this.state.id++,
+      id: id,
       name: this.state.name,
       price: this.state.price,
       quantity: this.state.quantity
     };
-    var items = this.state.items;
-    items.push(currentItem);
-    this.setState({ items: items });
+
+    const items = [ ...this.state.items, currentItem ];
+
+    this.setState({ items, id });
   };
   handleName = e => {
     this.setState({ name: e.target.value });
@@ -110,7 +113,7 @@ class Pos extends Component {
     });
   };
   render() {
-    var { quantity, modal, items } = this.state;
+    var { items } = this.state;
 
     var renderAmountDue = () => {
       return (
@@ -160,7 +163,7 @@ class Pos extends Component {
 
     var renderLivePos = () => {
       if (items.length === 0) {
-        return <p> No products added</p>;
+        return <tr><td>No products</td></tr>;
       } else {
         return items.map(
           item => <LivePos {...item} onChange={this.handleChange} />,
@@ -198,7 +201,7 @@ class Pos extends Component {
                 u<br />
                 t
               </button>
-              <div classNameName="modal-body">
+              <div className="modal-body">
                 <Modal show={this.state.checkOutModal}>
                   <Modal.Header closeButton>
                     <Modal.Title>Checkout</Modal.Title>
@@ -263,7 +266,7 @@ class Pos extends Component {
           <table className="pos table table-responsive table-striped table-hover">
             <thead>
               <tr>
-                <td colspan="6" className="text-center">
+                <td colSpan="6" className="text-center">
                   <span className="pull-left">
                     <button
                       onClick={() => this.setState({ addItemModal: true })}
@@ -283,7 +286,7 @@ class Pos extends Component {
                         className="form-horizontal"
                       >
                         <div className="form-group">
-                          <label className="col-md-2 lead" for="name">
+                          <label className="col-md-2 lead" htmlFor="name">
                             Name
                           </label>
                           <div className="col-md-8 input-group">
@@ -296,7 +299,7 @@ class Pos extends Component {
                           </div>
                         </div>
                         <div className="form-group">
-                          <label className="col-md-2 lead" for="price">
+                          <label className="col-md-2 lead" htmlFor="price">
                             Price
                           </label>
                           <div className="col-md-8 input-group">

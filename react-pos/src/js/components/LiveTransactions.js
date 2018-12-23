@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Header from "./Header";
+
 class LiveTransactions extends Component {
   render() {
     var { quantity, name, price } = this.props;
@@ -13,7 +13,7 @@ class LiveTransactions extends Component {
         <td>
           <span>{price}</span>
           <br />
-          <small class="small-text">
+          <small className="small-text">
             <em>(${price} each)</em>
           </small>
         </td>

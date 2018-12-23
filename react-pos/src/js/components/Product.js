@@ -56,9 +56,9 @@ class Product extends Component {
     return (
       <tr>
         <td>
-          <a href=""> {name} </a>
+          <a href="">{name}</a>
         </td>
-        <td> ${price} </td> <td> {quantity} </td>
+        <td>${price}</td><td>{quantity}</td>
         <td>
           <a
             className="btn btn-info"
@@ -74,7 +74,7 @@ class Product extends Component {
           <Modal.Body>
             <form className="form-horizontal" name="newProductForm">
               <div className="form-group">
-                <label className="col-md-4 control-label" for="name">
+                <label className="col-md-4 control-label" htmlFor="name">
                   Name
                 </label>
                 <div className="col-md-4">
@@ -88,7 +88,7 @@ class Product extends Component {
                 </div>
               </div>
               <div className="form-group">
-                <label className="col-md-4 control-label" for="price">
+                <label className="col-md-4 control-label" htmlFor="price">
                   Price
                 </label>
                 <div className="col-md-4">
@@ -107,7 +107,7 @@ class Product extends Component {
               <div className="form-group">
                 <label
                   className="col-md-4 control-label"
-                  for="quantity_on_hand"
+                  htmlFor="quantity_on_hand"
                 >
                   Quantity On Hand
                 </label>
@@ -122,7 +122,7 @@ class Product extends Component {
                 </div>
               </div>
               <div className="form-group">
-                <label className="col-md-4 control-label" for="image">
+                <label className="col-md-4 control-label" htmlFor="image">
                   Upload Image
                 </label>
                 <div className="col-md-4">

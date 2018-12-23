@@ -5,7 +5,7 @@ import Product from "./Product";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 
-const HOST = "http://localhost:80";
+const HOST = "http://localhost:8001";
 
 class Inventory extends Component {
   constructor(props) {
@@ -45,13 +45,13 @@ class Inventory extends Component {
       .then(
         response =>
           this.setState({ snackMessage: "Product Added Successfully!" }),
-        this.handleSnackbar()
+          this.handleSnackbar()
       )
-      .catch(err => {
+      .catch(err =>
         console.log(err),
           this.setState({ snackMessage: "Product failed to save" }),
-          this.handleSnackbar();
-      });
+          this.handleSnackbar()
+      );
   };
   handleEditProduct = editProduct => {
     axios
@@ -63,8 +63,8 @@ class Inventory extends Component {
       })
       .catch(err => {
         console.log(err);
-        this.setState({ snackMessage: "Product Update Failed!" }),
-          this.handleSnackbar();
+        this.setState({ snackMessage: "Product Update Failed!" });
+        this.handleSnackbar();
         return false;
       });
   };
@@ -91,10 +91,10 @@ class Inventory extends Component {
 
     var renderProducts = () => {
       if (products.length === 0) {
-        return <p>{products}</p>;
+        return <tr><td>No products</td></tr>;
       } else {
-        return products.map(product => (
-          <Product {...product} onEditProduct={this.handleEditProduct} />
+        return products.map((product, index) => (
+          <Product key={index} {...product} onEditProduct={this.handleEditProduct} />
         ));
       }
     };
@@ -103,17 +103,17 @@ class Inventory extends Component {
       <div>
         <Header />
 
-        <div class="container">
+        <div className="container">
           <a
-            class="btn btn-success pull-right"
+            className="btn btn-success pull-right"
             onClick={() => this.setState({ productFormModal: true })}
           >
-            <i class="glyphicon glyphicon-plus" /> Add New Item
+            <i className="glyphicon glyphicon-plus" /> Add New Item
           </a>
           <br />
           <br />
 
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -131,42 +131,42 @@ class Inventory extends Component {
             <Modal.Title>Add Product</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form class="form-horizontal" name="newProductForm">
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="barcode">
+            <form className="form-horizontal" name="newProductForm">
+              <div className="form-group">
+                <label className="col-md-4 control-label" htmlFor="barcode">
                   Barcode
                 </label>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     id="barcode"
                     name="barcode"
                     placeholder="Barcode"
-                    class="form-control"
+                    className="form-control"
                   />
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="name">
+              <div className="form-group">
+                <label className="col-md-4 control-label" htmlFor="name">
                   Name
                 </label>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     name="name"
                     placeholder="Name"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handleName}
                   />
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="price">
+              <div className="form-group">
+                <label className="col-md-4 control-label" htmlFor="price">
                   Price
                 </label>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     name="price"
                     placeholder="Price"
-                    class="form-control"
+                    className="form-control"
                     onChange={this.handlePrice}
                     type="number"
                     step="any"
@@ -174,24 +174,24 @@ class Inventory extends Component {
                   />
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="quantity_on_hand">
+              <div className="form-group">
+                <label className="col-md-4 control-label" htmlFor="quantity_on_hand">
                   Quantity On Hand
                 </label>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input
                     name="quantity_on_hand"
                     placeholder="Quantity On Hand"
                     onChange={this.handleQuantity}
-                    class="form-control"
+                    className="form-control"
                   />
                 </div>
               </div>
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="image">
+              <div className="form-group">
+                <label className="col-md-4 control-label" htmlFor="image">
                   Upload Image
                 </label>
-                <div class="col-md-4">
+                <div className="col-md-4">
                   <input type="file" name="image" />
                 </div>
               </div>
